@@ -1,0 +1,16 @@
+"Python boilerplates
+autocmd bufnewfile *.py 0r  ~/.vim/boilers/python_header.txt
+autocmd bufnewfile *.py exe "1," . 10 . "g/File Name.*/s//File Name : " .expand("%")
+autocmd bufnewfile *.py exe "1," . 10 . "g/Created.*/s//Created: ".strftime("%Y-%b-%d %H:%M:%S %Z")
+autocmd bufnewfile *.py exe "1," . 22 . "g/__date__ =.*/s//__date__ = '".strftime("%Y-%b-%d %H:%M:%S %Z")."'"
+
+
+"Check filetypes
+augroup filetypedetect
+ au! BufRead, BufNewFile *.m, *.oct setlocal filetype=octave
+ au! BufRead, BufNewFile *.py, setlocal filetype=python
+ au! BufRead, BufNewFile *.cpp, setlocal filetype=cpp
+ "au! BufRead, BufNewFile *.h, setlocal filetype=cpp
+augroup END
+
+

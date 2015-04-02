@@ -1,0 +1,44 @@
+#-----------------------------------------------------------------------------
+#File Name: Makefile
+#
+#Purpose:
+#
+#Created:
+#-----------------------------------------------------------------------------
+#Revision History
+#
+#
+#
+#-----------------------------------------------------------------------------
+#S.D.G
+
+## LICENSE DETAILS############################################################
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+#############################################################################
+
+## VARIABLES#################################################################
+project=
+CC=g++
+CFLAGS=-std=c++11
+target1=
+target2=
+#############################################################################
+
+$(project): $(target1) $(target2) 
+		$(CC) $(CFLAGS) $^ -o $@ 
+
+$(target1): .cpp
+		$(CC) $(CFLAGS) -c $^ 
+	
+$(target2): .cpp 
+		$(CC) $(CFLAGS) -c $^ 
+
+.PHONY: clean
+
+clean: 
+		rm *.o
+		rm $(project)
+ 
+
