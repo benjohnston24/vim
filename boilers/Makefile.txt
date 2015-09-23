@@ -19,26 +19,47 @@
 #############################################################################
 
 ## VARIABLES#################################################################
-project=
-CC=g++
-CFLAGS=-std=c++11
-target1=
-target2=
+CXX=g++
+CFLAGS=-std=c++11 -Wall
+# OPENCV_PATH=/home/ben/opencv
+# BOOST_ROOT=/home/ben/boost
+# INCLUDES=-I$(OPENCV_PATH)/include -I$(BOOST_ROOT)
+# LIBRARIES=-L$(OPENCV_PATH)/lib -L$(BOOST_ROOT)/stage/lib -L/usr/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect -lopencv_calib3d -lopencv_ml -lopencv_features2d -lboost_system -lboost_filesystem 
+
+SOURCE_FILES=\
+#	src/lib/libfile.cpp\
+
+SOURCE_FILES_WITH_MAIN=\
+#	src/exe/mainfile.cpp
+
+SOURCE_OBJECTS=\
+	$(patsubst %.cpp, %.o, $(SOURCE_FILES))\
+
+ALL_OBJECTS=\
+	$(SOURCE_OBJECTS)\
+	$(patsubst %.cpp,%.o,$(SOURCE_FILES_WITH_MAIN))
+
+DEPENDENCY_FILES=\
+	$(patsubst %.o,%.d,$(ALL_OBJECTS)) 
 #############################################################################
 
-$(project): $(target1) $(target2) 
-		$(CC) $(CFLAGS) $^ -o $@ 
+all: 
 
-$(target1): .cpp
-		$(CC) $(CFLAGS) -c $^ 
-	
-$(target2): .cpp 
-		$(CC) $(CFLAGS) -c $^ 
+%.o: %.cpp Makefile
+	@# Make dependency file
+	$(CXX) -MM -MT $@ -MF $(patsubst %.cpp,%.d,$<) $(CFLAGS) $(DEFINES) $(INCLUDES) $<
+	@# Compile
+	$(CXX) $(CFLAGS) $(DEFINES) $(INCLUDES) -c -o $@ $< 
+
+build:
+	mkdir $@
+
+blackeye: $(ALL_OBJECTS) build
+	$(CXX) -g -o build/$@ $(SOURCE_OBJECTS) src/exe/main.o $(LIBRARIES) $(INCLUDES)
 
 .PHONY: clean
-
-clean: 
-		rm *.o
-		rm $(project)
- 
-
+clean:
+	@echo "Cleaning"
+	@for pattern in '*~' '*.o' '*.d' ; do \
+		find . -name "$$pattern" | xargs rm -f; \
+	done
