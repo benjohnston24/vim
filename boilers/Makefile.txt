@@ -23,7 +23,7 @@ CXX=g++
 CFLAGS=-std=c++11 -Wall
 # OPENCV_PATH=/home/ben/opencv
 # BOOST_ROOT=/home/ben/boost
-# INCLUDES=-I$(OPENCV_PATH)/include -I$(BOOST_ROOT)
+# INCLUDES=-I src/lib -I$(OPENCV_PATH)/include -I$(BOOST_ROOT)
 # LIBRARIES=-L$(OPENCV_PATH)/lib -L$(BOOST_ROOT)/stage/lib -L/usr/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect -lopencv_calib3d -lopencv_ml -lopencv_features2d -lboost_system -lboost_filesystem 
 
 SOURCE_FILES=\
