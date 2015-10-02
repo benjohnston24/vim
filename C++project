@@ -1,0 +1,85 @@
+#!/bin/bash
+# Bash script for creating skeleton C/C++ projects
+# 
+# The first argument is the name of the project.
+# The second argument is the location of the project.
+# 
+# The script creates the following file structure
+#
+# location/
+#    Makefile
+#    src/
+#       lib/
+#          libproject.cpp
+#          libproject.h
+#       exe/
+#          name.cpp
+#    build/
+#    resources/
+#
+# Author: Ben Johnston bjohnston@neomailbox.net
+# Date: Fri Sep 25 20:05:46 AEST 2015
+
+function printUsage()
+{
+    echo "Usage: C++project [name] [location]"
+    echo ""
+    echo "Create a skeleton C++ project"
+    echo "with the following structure"
+    echo ""
+    echo "location/name/"
+    echo "    Makefile"
+    echo "    src/"
+    echo "        lib/"
+    #echo "           libproject.cpp"
+    #echo "           libproject.h"
+    echo "        exe/"
+    #echo "           name.cpp"
+    echo "    build/"
+    echo "    resources/"
+    exit;
+}
+
+if [[ $# -lt 2 ]]
+then
+    printUsage
+fi
+
+
+if [[ ! -d $2 ]]
+then
+    echo "Second argument must be a directory"
+    echo "" 
+    printUsage
+fi
+
+C_PATH=$2/$1
+
+if [[ -f $C_PATH ]]
+then
+    echo "First argument must be an unique name"
+    echo
+    printUsage
+fi 
+
+if [[ -d $C_PATH ]]
+then
+    echo "Folder by that name already exists"
+    echo
+    printUsage
+fi 
+
+#-----------------------------------------------
+# Start creating folders
+#-----------------------------------------------
+mkdir $C_PATH
+mkdir $C_PATH/build
+mkdir $C_PATH/src
+mkdir $C_PATH/src/lib
+mkdir $C_PATH/src/exe
+
+cp ~/.vim/boilers/Makefile.txt $C_PATH/Makefile
+cp ~/.vim/boilers/cpp_source.txt $C_PATH/src/lib/lib$1.cpp
+cp ~/.vim/boilers/header.txt $C_PATH/src/lib/lib$1.h
+cp ~/.vim/boilers/cpp_source.txt $C_PATH/src/exe/$1.cpp
+cp ~/.vim/boilers/header.txt $C_PATH/src/exe/$1.h

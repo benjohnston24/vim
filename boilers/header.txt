@@ -34,21 +34,19 @@
 
 /*--------------------------------------------------
  Required header files:
- Add of remove where required
+ Add where required
 */
 
-#include <iostream>
-//#include <iomanip>
-//#include <cstdlib>
-//#include <cmath>
-//#include <array>
-//#include <vector>
-//#include <string>
-//#include <except>
-//#include <random>
-//#include <ctime>
+class : 
+{
+    //friends
 
-using namespace std;
+    public:
+        constructor
+        destructor
 
+    private:
+        ...
+};
 
 #endif

@@ -31,19 +31,56 @@
  Required header files:
  Add of remove where required
 */
-
 #include <iostream>
 //#include <iomanip>
 //#include <cstdlib>
+//#include <fstream>
 //#include <cmath>
+//#include <algorithm>
+//#include <iterator>
 //#include <array>
 //#include <vector>
+//#include <list>
+//#include <forward_list>
+//#include <deque>
+//#include <set>
+//#include <unordered_set>
+//#include <map>
+//#include <unordered_map>
+//#include <stack>
+//#include <queue>
+//#include <bitset>
 //#include <string>
 //#include <stdexcept>
 //#include <random>
 //#include <ctime>
 
+
 using namespace std;
+
+
+/*--------------------------------------------------
+Constructors / Destructors
+*/
+
+
+/*--------------------------------------------------
+Setters
+*/
+
+
+/*--------------------------------------------------
+Getters
+*/
+
+/*--------------------------------------------------
+Friends
+*/
+
+/*--------------------------------------------------
+Member Functions
+*/
+
 
 /*--------------------------------------------------
  Function prototypes 
@@ -60,6 +97,6 @@ int main()
 }
 
 /*--------------------------------------------------
-Function 
+Functions 
 */
 
