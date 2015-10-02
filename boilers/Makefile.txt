@@ -43,7 +43,7 @@ DEPENDENCY_FILES=\
 	$(patsubst %.o,%.d,$(ALL_OBJECTS)) 
 #############################################################################
 
-all: 
+all: main 
 
 %.o: %.cpp Makefile
 	@# Make dependency file
@@ -54,8 +54,8 @@ all:
 build:
 	mkdir $@
 
-blackeye: $(ALL_OBJECTS) build
-	$(CXX) -g -o build/$@ $(SOURCE_OBJECTS) src/exe/main.o $(LIBRARIES) $(INCLUDES)
+main: $(ALL_OBJECTS) build
+	$(CXX) -g -o build/$@ $(SOURCE_OBJECTS) src/exe/$@.o $(LIBRARIES) $(INCLUDES)
 
 .PHONY: clean
 clean:
