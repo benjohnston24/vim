@@ -25,20 +25,20 @@ autocmd bufnewfile Makefile exe "1," . 10 . "g/Created.*/s//Created: ".strftime(
 
 "Python boilerplate
 autocmd bufnewfile *.py 0r  ~/.vim/boilers/python_header.txt
-autocmd bufnewfile *.py exe "1," . 10 . "g/File Name.*/s//File Name : " .expand("%")
-autocmd bufnewfile *.py exe "1," . 10 . "g/Created.*/s//Created: ".strftime("%d-%b-%Y %H:%M:%S %Z")
+"autocmd bufnewfile *.py exe "1," . 10 . "g/File Name.*/s//File Name : " .expand("%")
+"autocmd bufnewfile *.py exe "1," . 10 . "g/Created.*/s//Created: ".strftime("%d-%b-%Y %H:%M:%S %Z")
 autocmd bufnewfile *.py exe "1," . 22 . "g/__date__ =.*/s//__date__ = '".strftime("%d-%b-%Y %H:%M:%S %Z")."'"
 
 "Python package setup
 autocmd bufnewfile setup.py 0r  ~/.vim/boilers/python_setup.txt
-autocmd bufnewfile *.py exe "1," . 10 . "g/File Name.*/s//File Name : " .expand("%")
-autocmd bufnewfile *.py exe "1," . 10 . "g/Created.*/s//Created: ".strftime("%d-%b-%Y %H:%M:%S %Z")
+"autocmd bufnewfile *.py exe "1," . 10 . "g/File Name.*/s//File Name : " .expand("%")
+"autocmd bufnewfile *.py exe "1," . 10 . "g/Created.*/s//Created: ".strftime("%d-%b-%Y %H:%M:%S %Z")
 autocmd bufnewfile *.py exe "1," . 22 . "g/__date__ =.*/s//__date__ = '".strftime("%d-%b-%Y %H:%M:%S %Z")."'"
 
 execute pathogen#infect()
 set statusline+=%{SyntasticStatuslineFlag()}
 "Max line width to 80 characters
-set tw=79
+set tabstop=4
 set statusline=%f "tail of the filename
 set number
 syntax on
@@ -47,7 +47,11 @@ set statusline+=%#warningmsg#
 set statusline+=%*
 set expandtab
 set tabstop=4
+set textwidth=120
+set softtabstop=4
 set shiftwidth=4
+set expandtab
+set autoindent
 map <F2> :wa <CR>
 map! <F2> :wa <CR>
 map <F3> :!doxygen doxyfile <CR>
