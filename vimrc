@@ -56,7 +56,7 @@ map <F2> :wa <CR>
 map! <F2> :wa <CR>
 map <F3> :!doxygen doxyfile <CR>
 "map <F4> :wa <CR>:!python scratchpad.py <CR>
-map <F4> :r!date<CR>
+map <F4> :r!date +"%d-%b-%Y %H:%M:%S %Z"<CR>
 map! <F4> <ESC>:r!date<CR>
 nmap <C-S-l> :tabn <CR>
 nmap <C-S-k> :tabp <CR>
