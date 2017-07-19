@@ -2,11 +2,16 @@
 # -*- coding: utf-8 -*-
 # S.D.G
 
+"""Doc string for module
+
+
+
+:author: Ben Johnston
+:license: 3-Clause BSD
+
+"""
+
 # Imports
 
 
-__author__ = 'Ben Johnston'
-__revision__ = '0.1'
-__date__ =
-__license__ = 'MPL v2.0'
 
