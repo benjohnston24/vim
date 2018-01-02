@@ -7,7 +7,6 @@
 
 
 :author: Ben Johnston
-:license: 3-Clause BSD
 
 """
 
